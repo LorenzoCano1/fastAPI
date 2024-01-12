@@ -22,6 +22,11 @@ def hola_mundo():
 def hola_mundo():
     return {"Hola": "Lorenzo"}
 
+# Ruta ejemplo
+@app.get("/HOLAAAAAAA")
+def hola_mundo():
+    return {"Hola": "HOLAAAAA"}
+
 
 @app.get("/items/{item_id}")
 def read_iteam(item_id: int, q: Union[str, None] = None):
