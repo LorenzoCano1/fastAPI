@@ -1,3 +1,4 @@
+from http.client import HTTPException
 from typing import Union
 from fastapi import FastAPI
 
@@ -16,6 +17,12 @@ def hola_mundo():
     return {"Hola": "Mundo"}
 
 
+# Ruta ejemplo
+@app.get("/saludo2")
+def hola_mundo():
+    return {"Hola": "Lorenzo"}
+
+
 @app.get("/items/{item_id}")
 def read_iteam(item_id: int, q: Union[str, None] = None):
     return {'item_id': item_id, 'q': q} 
@@ -24,7 +31,8 @@ def read_iteam(item_id: int, q: Union[str, None] = None):
 @app.get("/calculadora")
 def calcular(num1: float, num2: float):
     try:
-        return {'suma': num1 + num2}
-    except:
-        return print("error")
+        resultado = num1 + num2
+        return {'suma': resultado}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error en la operación: {e}")
 
