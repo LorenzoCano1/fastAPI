@@ -1,15 +1,11 @@
 ﻿from http.client import HTTPException
 from typing import Union
 from fastapi import FastAPI
-from pydantic import BaseModel
+from models.item_model import Item
+
 
 # Creo la app para despues ejecutar el comando uvicron main:app(depende el nombre de la variable) --reload(Para que se actualice solo cuando haces algun cambio)
 app = FastAPI()
-
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool,None] = None
 
 
 # Ruta raiz
