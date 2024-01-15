@@ -17,19 +17,6 @@ def hola_mundo():
     return {"Hola": "Mundo"}
 
 
-# Ruta ejemplo
-@app.get("/saludo2")
-def hola_mundo():
-    return {"Hola": "Lorenzo"}
-
-# Ruta ejemplo
-@app.get("/HOLAAAAAAA")
-def hola_mundo():
-    return {"Hola": "HOLAAAAA"}
-
-print("Este es un cambio mas por las dudas")
-
-
 @app.get("/items/{item_id}")
 def read_iteam(item_id: int, q: Union[str, None] = None):
     return {'item_id': item_id, 'q': q} 
